@@ -1,0 +1,40 @@
+<button class="mt-3 ml-1 btn btn-primary" (click)="redirectToAdd()">Add Task</button>
+<table class="mt-3 table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Frequency</th>
+            <th>Business segment</th>
+            <th>category</th>
+            <th>Provenance flag</th>
+            <th>Nature</th>
+            <th>Weightage score</th>
+            <th>Create By</th>
+            <th>Creation Date</th>
+            <th>Approver</th>
+            <th>Is Active</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody *ngIf="dashBoardData">
+
+        <tr *ngFor="let data of dashBoardData.data">
+            <td> {{data.task}} </td>
+            <td>{{data.taskFrequency}}</td>
+            <td>{{data.taskBusinessSegment}}</td>
+            <td>{{data.taskCategory}}</td>
+            <td>{{data.taskProvenaceFlag}}</td>
+            <td>{{data.taskNature}}</td>
+            <td>{{data.taskWeightageScore}}</td>
+            <td>{{data.taskCreatedBy}}</td>
+            <td>{{data.taskCreationTimestamp}}</td>
+            <td>{{data.taskApporver}}</td>
+            <td>{{data.isActive}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="redirectToEdit(data.task)">Edit</button>
+                <button class="btn btn-primary ml-2" (click)="deleteData(data.task)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
